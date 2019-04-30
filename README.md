@@ -6,16 +6,16 @@
 
 ```java
 ActivityResult.with(this)
-                .setIntent(new Intent(this, Main2Activity.class))
-                .setRequestCode(10)
-                .setListener(new ActivityResultListener() {
-                    @Override
-                    public void onSuccess(Result result) {
-                    }
+  .setIntent(new Intent(this, Main2Activity.class))
+  .setRequestCode(10)
+  .setListener(new ActivityResultListener() {
+      @Override
+      public void onSuccess(Result result) {
+      }
 
-                    @Override
-                    public void onFailed(Result result) {
-                    }
-                }).startIntent();
+      @Override
+      public void onFailed(Result result) {
+      }
+  }).startIntent();
 ```
 

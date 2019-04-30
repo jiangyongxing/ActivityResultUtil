@@ -1,6 +1,6 @@
 本 `module` 的宗旨：
 
-帮助Android开发者解决需要重写Activity中的onActivityResult回调方法的痛点
+> 帮助Android开发者解决需要重写Activity中的onActivityResult回调方法的痛点
 
 使用方式：
 

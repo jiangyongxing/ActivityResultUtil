@@ -37,7 +37,6 @@ public class ActivityStartRequest {
 
     private static class Singleton {
         static ActivityStartRequest activityStartRequest = new ActivityStartRequest();
-
     }
 
     public static ActivityStartRequest getInstance() {
@@ -64,10 +63,10 @@ public class ActivityStartRequest {
         if (activity == null || activity.isFinishing()) {
             return new ActivityResultFragmentManager();
         }
-        return fragmentGet(activity, activity.getFragmentManager());
+        return fragmentGet(activity.getFragmentManager());
     }
 
-    private ActivityResultFragmentManager fragmentGet(Activity activity, android.app.FragmentManager fragmentManager) {
+    private ActivityResultFragmentManager fragmentGet(android.app.FragmentManager fragmentManager) {
         ActivityResultFragment activityResultFragment = getActivityResultFragment(fragmentManager);
         ActivityResultFragmentManager resultFragmentManager = activityResultFragment.getActivityResultFragmentManager();
         if (resultFragmentManager == null) {
@@ -95,10 +94,10 @@ public class ActivityStartRequest {
         if (activity == null || activity.isFinishing()) {
             return new ActivityResultFragmentManager();
         }
-        return supportFragmentGet(activity, activity.getSupportFragmentManager());
+        return supportFragmentGet(activity.getSupportFragmentManager());
     }
 
-    private ActivityResultFragmentManager supportFragmentGet(AppCompatActivity activity, FragmentManager fragmentManager) {
+    private ActivityResultFragmentManager supportFragmentGet(FragmentManager fragmentManager) {
         SupportActivityResultFragment activityResultFragment = getSupportActivityResultFragment(fragmentManager);
         ActivityResultFragmentManager resultFragmentManager = activityResultFragment.getActivityResultFragmentManager();
         if (resultFragmentManager == null) {

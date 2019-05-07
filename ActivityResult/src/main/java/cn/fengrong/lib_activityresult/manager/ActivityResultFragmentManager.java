@@ -18,6 +18,9 @@ import cn.fengrong.lib_activityresult.ui.SupportActivityResultFragment;
  */
 public class ActivityResultFragmentManager {
 
+    /**
+     * 默认的RequestCode
+     */
     public static final int DEFAULT_REQUEST_CODE = 9999;
 
     private Intent mIntent;

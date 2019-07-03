@@ -63,7 +63,7 @@ public class ActivityResultFragmentManager {
                 resultFragment.setStartIntent(mIntent);
                 resultFragment.setRequestCode(mRequestCode);
                 resultFragment.setInnerActivityResultListener(listener);
-                mSupportFragmentManager.beginTransaction().add(resultFragment, ActivityStartRequest.TAG).commit();
+                mSupportFragmentManager.beginTransaction().add(resultFragment, ActivityStartRequest.TAG).commitAllowingStateLoss();
             }
         }
 
@@ -74,7 +74,7 @@ public class ActivityResultFragmentManager {
                 resultFragment.setStartIntent(mIntent);
                 resultFragment.setRequestCode(mRequestCode);
                 resultFragment.setInnerActivityResultListener(listener);
-                mFragmentManager.beginTransaction().add(resultFragment, ActivityStartRequest.TAG).commit();
+                mFragmentManager.beginTransaction().add(resultFragment, ActivityStartRequest.TAG).commitAllowingStateLoss();
             }
         }
     }

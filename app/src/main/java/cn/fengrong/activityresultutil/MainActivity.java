@@ -3,6 +3,7 @@ package cn.fengrong.activityresultutil;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import cn.fengrong.lib_activityresult.ActivityResult;
 import cn.fengrong.lib_activityresult.bean.Result;
@@ -20,11 +21,15 @@ public class MainActivity extends Activity {
                 .setListener(new ActivityResultListener() {
                     @Override
                     public void onSuccess(Result result) {
+                        Log.e("jiang","返回成功");
                     }
 
                     @Override
                     public void onFailed(Result result) {
+                        Log.e("jiang","返回失败");
+
                     }
                 }).startIntent();
     }
+
 }

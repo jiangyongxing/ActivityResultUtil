@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 
-import java.util.Map;
-
 import cn.fengrong.lib_activityresult.bean.Result;
 import cn.fengrong.lib_activityresult.listener.ActivityResultListener;
 import cn.fengrong.lib_activityresult.listener.InnerActivityResultListener;
@@ -22,6 +20,8 @@ public class ActivityResultFragmentManager {
      * 默认的RequestCode
      */
     public static final int DEFAULT_REQUEST_CODE = 9999;
+    private SupportActivityResultFragment mSupportActivityResultFragment;
+    private ActivityResultFragment mActivityResultFragment;
 
     private Intent mIntent;
     private int mRequestCode = DEFAULT_REQUEST_CODE;
@@ -32,12 +32,14 @@ public class ActivityResultFragmentManager {
     public ActivityResultFragmentManager() {
     }
 
-    public ActivityResultFragmentManager(FragmentManager fragmentManager) {
+    public ActivityResultFragmentManager(FragmentManager fragmentManager, SupportActivityResultFragment supportActivityResultFragment) {
         this.mSupportFragmentManager = fragmentManager;
+        this.mSupportActivityResultFragment = supportActivityResultFragment;
     }
 
-    public ActivityResultFragmentManager(android.app.FragmentManager fragmentManager) {
+    public ActivityResultFragmentManager(android.app.FragmentManager fragmentManager, ActivityResultFragment activityResultFragment) {
         this.mFragmentManager = fragmentManager;
+        this.mActivityResultFragment = activityResultFragment;
     }
 
     public ActivityResultFragmentManager setIntent(Intent intent) {
@@ -57,8 +59,7 @@ public class ActivityResultFragmentManager {
 
     public void startIntent() {
         if (mSupportFragmentManager != null) {
-            Map<FragmentManager, SupportActivityResultFragment> managerFragments = ActivityStartRequest.getInstance().pendingSupportRequestManagerFragments;
-            SupportActivityResultFragment resultFragment = managerFragments.get(mSupportFragmentManager);
+            SupportActivityResultFragment resultFragment = mSupportActivityResultFragment;
             if (resultFragment != null) {
                 resultFragment.setStartIntent(mIntent);
                 resultFragment.setRequestCode(mRequestCode);
@@ -68,8 +69,7 @@ public class ActivityResultFragmentManager {
         }
 
         if (mFragmentManager != null) {
-            Map<android.app.FragmentManager, ActivityResultFragment> managerFragments = ActivityStartRequest.getInstance().pendingRequestManagerFragments;
-            ActivityResultFragment resultFragment = managerFragments.get(mFragmentManager);
+            ActivityResultFragment resultFragment = mActivityResultFragment;
             if (resultFragment != null) {
                 resultFragment.setStartIntent(mIntent);
                 resultFragment.setRequestCode(mRequestCode);

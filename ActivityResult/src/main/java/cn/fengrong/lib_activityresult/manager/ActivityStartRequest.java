@@ -58,7 +58,7 @@ public class ActivityStartRequest {
         ActivityResultFragment activityResultFragment = getActivityResultFragment(fragmentManager);
         ActivityResultFragmentManager resultFragmentManager = activityResultFragment.getActivityResultFragmentManager();
         if (resultFragmentManager == null) {
-            resultFragmentManager = new ActivityResultFragmentManager(fragmentManager);
+            resultFragmentManager = new ActivityResultFragmentManager(fragmentManager,activityResultFragment);
             activityResultFragment.setActivityResultFragmentManager(resultFragmentManager);
         }
         return resultFragmentManager;
@@ -84,7 +84,7 @@ public class ActivityStartRequest {
         SupportActivityResultFragment activityResultFragment = getSupportActivityResultFragment(fragmentManager);
         ActivityResultFragmentManager resultFragmentManager = activityResultFragment.getActivityResultFragmentManager();
         if (resultFragmentManager == null) {
-            resultFragmentManager = new ActivityResultFragmentManager(fragmentManager);
+            resultFragmentManager = new ActivityResultFragmentManager(fragmentManager,activityResultFragment);
             activityResultFragment.setActivityResultFragmentManager(resultFragmentManager);
         }
         return resultFragmentManager;

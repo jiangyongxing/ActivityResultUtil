@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 
 import cn.fengrong.lib_activityresult.listener.InnerActivityResultListener;
 import cn.fengrong.lib_activityresult.manager.ActivityResultFragmentManager;
@@ -97,5 +98,11 @@ public class SupportActivityResultFragment extends Fragment {
 
     public void setInnerActivityResultListener(InnerActivityResultListener listener) {
         this.mInnerActivityResultListener = listener;
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.e("jiang", "onDestroy:" + "fragment 销毁了");
+        super.onDestroy();
     }
 }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import cn.fengrong.lib_activityresult.ActivityResult;
 import cn.fengrong.lib_activityresult.bean.Result;
@@ -15,6 +16,11 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+    }
+
+    public void startNewActivity(View view) {
+
         ActivityResult.with(this)
                 .setIntent(new Intent(this, Main2Activity.class))
                 .setRequestCode(10)
@@ -31,5 +37,4 @@ public class MainActivity extends Activity {
                     }
                 }).startIntent();
     }
-
 }

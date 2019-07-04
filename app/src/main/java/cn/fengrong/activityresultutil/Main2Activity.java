@@ -1,8 +1,9 @@
 package cn.fengrong.activityresultutil;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 public class Main2Activity extends AppCompatActivity {
@@ -17,5 +18,11 @@ public class Main2Activity extends AppCompatActivity {
 
         setResult(Activity.RESULT_OK);
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e("jiang", "onDestroy:" + "Activity 销毁了");
     }
 }

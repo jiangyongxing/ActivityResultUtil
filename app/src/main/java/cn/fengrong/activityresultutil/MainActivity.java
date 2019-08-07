@@ -20,9 +20,17 @@ public class MainActivity extends Activity {
     }
 
     public void startNewActivity(View view) {
+        Intent intent = new Intent(this, Main2Activity.class);
 
+        startActivityFor(intent);
+        startActivityFor(intent);
+        startActivityFor(intent);
+        startActivityFor(intent);
+    }
+
+    private void startActivityFor(Intent intent) {
         ActivityResult.with(this)
-                .setIntent(new Intent(this, Main2Activity.class))
+                .setIntent(intent)
                 .setRequestCode(10)
                 .setListener(new ActivityResultListener() {
                     @Override

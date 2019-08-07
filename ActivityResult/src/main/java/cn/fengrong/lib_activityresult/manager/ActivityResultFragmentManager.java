@@ -64,7 +64,9 @@ public class ActivityResultFragmentManager {
                 resultFragment.setStartIntent(mIntent);
                 resultFragment.setRequestCode(mRequestCode);
                 resultFragment.setInnerActivityResultListener(listener);
-                mSupportFragmentManager.beginTransaction().add(resultFragment, ActivityStartRequest.TAG).commitAllowingStateLoss();
+                if (!resultFragment.isAdded()){
+                    mSupportFragmentManager.beginTransaction().add(resultFragment, ActivityStartRequest.TAG).commitAllowingStateLoss();
+                }
             }
         }
 
@@ -74,7 +76,9 @@ public class ActivityResultFragmentManager {
                 resultFragment.setStartIntent(mIntent);
                 resultFragment.setRequestCode(mRequestCode);
                 resultFragment.setInnerActivityResultListener(listener);
-                mFragmentManager.beginTransaction().add(resultFragment, ActivityStartRequest.TAG).commitAllowingStateLoss();
+                if (!resultFragment.isAdded()){
+                    mFragmentManager.beginTransaction().add(resultFragment, ActivityStartRequest.TAG).commitAllowingStateLoss();
+                }
             }
         }
     }

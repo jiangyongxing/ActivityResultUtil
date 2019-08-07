@@ -33,7 +33,7 @@ publish {
     userOrg = 'jiangyongxing'// Binary用户名
     groupId = 'cn.yongxing'// 依赖名compile 'x:y:z'中的包名x
     artifactId = 'ActivityResult' // 依赖名compile 'x:y:z'中的项目名y
-    publishVersion = '1.0.8'// 依赖名compile 'x:y:z'中的版本号z
+    publishVersion = '1.0.9'// 依赖名compile 'x:y:z'中的版本号z
     desc = '帮助Android开发者解决需要重写Activity中的onActivityResult回调方法的痛点'// 对该开源组件的说明
     website = 'https://github.com/jiangyongxing/ActivityResultUtil'// VCS地址，即填写项目上传的Github地址
 }
